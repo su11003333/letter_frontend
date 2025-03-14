@@ -1,103 +1,120 @@
-import Image from "next/image";
+import Link from 'next/link';
+import { Metadata } from 'next';
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: '寫字練習平台 - 首頁',
+  description: '透過遊戲化方式學習正確筆順，提升孩子的寫字興趣和能力',
+};
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="space-y-10">
+      {/* 英雄區塊 */}
+      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-lg shadow-xl p-8 mb-10">
+        <div className="max-w-3xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            引導小孩學習寫字的互動平台
+          </h1>
+          <p className="text-xl mb-8">
+            通過遊戲化方式學習正確筆順，提升孩子的寫字興趣和能力
+          </p>
+          
+          <div className="space-x-4">
+            <Link
+              href="/login"
+              className="inline-block bg-white text-indigo-700 hover:bg-indigo-100 font-bold px-6 py-3 rounded-lg shadow-md text-lg transition-all"
+            >
+              登錄
+            </Link>
+            <Link
+              href="/practice"
+              className="inline-block bg-indigo-500 text-white hover:bg-indigo-600 font-bold px-6 py-3 rounded-lg shadow-md text-lg transition-all"
+            >
+              開始練習
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+      
+      {/* 特點和優勢 */}
+      <div className="max-w-5xl mx-auto mb-12">
+        <h2 className="text-3xl font-bold text-center mb-8">我們的特點</h2>
+        
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="text-4xl text-blue-600 mb-4">🖌️</div>
+            <h3 className="text-xl font-semibold mb-2">正確筆順引導</h3>
+            <p className="text-gray-600">
+              系統會顯示筆順指導，幫助孩子建立正確的書寫習慣。
+            </p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="text-4xl text-blue-600 mb-4">🎮</div>
+            <h3 className="text-xl font-semibold mb-2">遊戲化學習</h3>
+            <p className="text-gray-600">
+              將寫字學習轉化為有趣的遊戲體驗，提高孩子的學習興趣。
+            </p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="text-4xl text-blue-600 mb-4">📊</div>
+            <h3 className="text-xl font-semibold mb-2">進度追蹤</h3>
+            <p className="text-gray-600">
+              詳細記錄學習進度，幫助家長和教師了解孩子的學習狀況。
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      {/* 使用說明 */}
+      <div className="bg-gray-50 p-8 rounded-lg">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8">如何使用</h2>
+          
+          <div className="space-y-6">
+            <div className="flex items-start">
+              <span className="flex-shrink-0 bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4">1</span>
+              <div>
+                <h3 className="text-xl font-semibold mb-1">註冊帳號</h3>
+                <p className="text-gray-600">
+                  建立個人帳號，以便追蹤學習進度和成就。
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-start">
+              <span className="flex-shrink-0 bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4">2</span>
+              <div>
+                <h3 className="text-xl font-semibold mb-1">選擇練習字元</h3>
+                <p className="text-gray-600">
+                  從字庫中選擇要練習的漢字。
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-start">
+              <span className="flex-shrink-0 bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4">3</span>
+              <div>
+                <h3 className="text-xl font-semibold mb-1">跟隨筆順練習</h3>
+                <p className="text-gray-600">
+                  按照指示的筆順節點順序完成漢字書寫。
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-start">
+              <span className="flex-shrink-0 bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4">4</span>
+              <div>
+                <h3 className="text-xl font-semibold mb-1">獲得反饋與進步</h3>
+                <p className="text-gray-600">
+                  系統會評估寫字完成度並提供反饋，幫助持續進步。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
