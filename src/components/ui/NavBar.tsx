@@ -57,6 +57,14 @@ const NavBar: React.FC = () => {
           {isLoggedIn ? (
             <div className="flex items-center space-x-4">
               <span>你好，{user?.username}</span>
+              {user?.id === 1 && (
+                <Link 
+                  href="/admin" 
+                  className="bg-purple-500 hover:bg-purple-400 px-3 py-1 rounded"
+                >
+                  管理
+                </Link>
+              )}
               <button 
                 onClick={handleLogout}
                 className="bg-blue-500 hover:bg-blue-400 px-3 py-1 rounded"

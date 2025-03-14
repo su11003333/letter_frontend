@@ -18,27 +18,24 @@ const LoginForm = () => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
-
+  
     if (!username || !password) {
       setError('請輸入用戶名和密碼');
       setIsLoading(false);
       return;
     }
-
+  
     try {
-      // 在實際應用中，這裡應調用真實的 API
-      // 模擬 API 調用延遲
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      // 簡化登入邏輯 (實際應用中應從 API 獲取)
-      const mockResponse = {
-        user: { id: 1, username },
-        token: 'mock-jwt-token'
-      };
-
-      // 存儲到 Zustand 和 localStorage
-      login(mockResponse.user, mockResponse.token);
-
+      // 使用實際的 API 端點
+      const response = await ApiService.login({
+        username,
+        password
+      });
+  
+      // 確保 userId 和 token 都正確存儲
+      login(response.user, response.token);
+      localStorage.setItem('userId', response.user.id.toString());
+  
       // 跳轉到練習頁面
       router.push('/practice');
     } catch (error) {

@@ -1,4 +1,4 @@
-// components/game/PhaserGame.tsx
+// src/components/game/PhaserGame.tsx
 'use client';
 
 import { useEffect, useRef } from 'react';
@@ -30,8 +30,15 @@ const PhaserGame: React.FC<PhaserGameProps> = ({ characterData, onComplete }) =>
       parent: gameRef.current,
       width: 600,
       height: 600,
-      backgroundColor: '#f8f8f8',
+      backgroundColor: 0xf8f8f8,
       scene: [WritingScene],
+      physics: {
+        default: 'arcade',
+        arcade: {
+          gravity: { x: 0, y: 0 },
+          debug: false
+        }
+      }
     };
 
     // 創建新的遊戲實例
@@ -55,7 +62,7 @@ const PhaserGame: React.FC<PhaserGameProps> = ({ characterData, onComplete }) =>
   }, [characterData, onComplete]);
 
   return (
-    <div className="game-container w-full max-w-3xl mx-auto border-2 border-gray-300 rounded-lg overflow-hidden">
+    <div className="game-container w-full max-w-3xl mx-auto border-2 border-gray-300 rounded-lg overflow-hidden shadow-lg">
       <div ref={gameRef} className="phaser-container"></div>
     </div>
   );
